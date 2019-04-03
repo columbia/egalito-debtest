@@ -1,7 +1,11 @@
 #!/bin/bash
 
-egalito=/home/dwk/egalito-2
-etharden=$egalito/app/etharden
+if [[ $EGALITO_ROOT == "" ]]; then
+    echo "EGALITO_ROOT must be set"
+    exit 1
+fi
+
+etharden=$EGALITO_ROOT/app/etharden
 
 if [ -z "$1" ]; then
     echo usage: $0 mode packages...
